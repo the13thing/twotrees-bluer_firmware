@@ -23,7 +23,7 @@
 
 #define CONFIG_EXAMPLES_DIR "Two Trees/BlueR/BlueR V3"
 
-#define BLUER_TMC2209 // Enable for the TMC2209 driver version
+// #define BLUER_TMC2209 // Enable for the TMC2209 driver version
 #define BLUER_BLTOUCH // Enable if you want to use BLTOUCH
 //#define MKS_13        // Enable for MKS 1.3 board with soldered TMC2225 drivers
 
@@ -175,11 +175,14 @@
 #endif
 #define X_DRIVER_TYPE BASE_DRIVER_TYPE
 #define Y_DRIVER_TYPE BASE_DRIVER_TYPE
-#if ENABLED(MKS_13)
-  #define Z_DRIVER_TYPE BASE_DRIVER_TYPE
-#else
-  #define Z_DRIVER_TYPE BASE_DRIVER_TYPE
-#endif
+
+#define Z_DRIVER_TYPE A4988
+#define E0_DRIVER_TYPE A4988
+// #if ENABLED(MKS_13)
+//   #define Z_DRIVER_TYPE BASE_DRIVER_TYPE
+// #else
+//   #define Z_DRIVER_TYPE BASE_DRIVER_TYPE
+// #endif
 //#define X2_DRIVER_TYPE A4988
 //#define Y2_DRIVER_TYPE A4988
 //#define Z2_DRIVER_TYPE A4988
@@ -191,11 +194,11 @@
 //#define U_DRIVER_TYPE  A4988
 //#define V_DRIVER_TYPE  A4988
 //#define W_DRIVER_TYPE  A4988
-#if ENABLED(MKS_13)
-  #define E0_DRIVER_TYPE BASE_DRIVER_TYPE
-#else
-  #define E0_DRIVER_TYPE BASE_DRIVER_TYPE
-#endif
+// #if ENABLED(MKS_13)
+//   #define E0_DRIVER_TYPE BASE_DRIVER_TYPE
+// #else
+//   #define E0_DRIVER_TYPE BASE_DRIVER_TYPE
+// #endif
 //#define E1_DRIVER_TYPE A4988
 //#define E2_DRIVER_TYPE A4988
 //#define E3_DRIVER_TYPE A4988
@@ -1325,7 +1328,8 @@
  *      - normally-closed switches to GND and D32.
  *      - normally-open switches to 5V and D32.
  */
-#define Z_MIN_PROBE_PIN 32 // Pin 32 is the RAMPS default
+#define Z_MIN_PROBE_PIN PA11 // Pin 32 is the RAMPS default
+// #define Z_MIN_PROBE_PIN 11 // Pin 32 is the RAMPS default
 
 /**
  * Probe Type
@@ -1516,7 +1520,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-//#define NOZZLE_TO_PROBE_OFFSET { 0, -37, 0 }
+#define NOZZLE_TO_PROBE_OFFSET { 40, 0, 0 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1576,7 +1580,7 @@
  * A total of 2 does fast/slow probes with a weighted average.
  * A total of 3 or more adds more slow probes, taking the average.
  */
-#define MULTIPLE_PROBING 2
+#define MULTIPLE_PROBING 3
  //#define EXTRA_PROBING    1
 
 /**
@@ -1740,7 +1744,7 @@
 
 // Travel limits (linear=mm, rotational=°) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0
-#define Y_MIN_POS -5
+#define Y_MIN_POS 0
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
@@ -1817,7 +1821,7 @@
   #define FIL_RUNOUT_ENABLED_DEFAULT true // Enable the sensor on startup. Override with M412 followed by M500.
   #define NUM_RUNOUT_SENSORS   1          // Number of sensors, up to one per extruder. Define a FIL_RUNOUT#_PIN for each.
 
-  #define FIL_RUNOUT_STATE     LOW        // Pin state indicating that filament is NOT present.
+  #define FIL_RUNOUT_STATE     HIGH        // Pin state indicating that filament is NOT present.
   #define FIL_RUNOUT_PULLUP               // Use internal pullup for filament runout pins.
   //#define FIL_RUNOUT_PULLDOWN           // Use internal pulldown for filament runout pins.
   //#define WATCH_ALL_RUNOUT_SENSORS      // Execute runout script on any triggering sensor, not only for the active extruder.
@@ -2076,7 +2080,7 @@
   #define BED_TRAMMING_HEIGHT      0.0        // (mm) Z height of nozzle at leveling points
   #define BED_TRAMMING_Z_HOP      10.0        // (mm) Z height of nozzle between leveling points
   #define BED_TRAMMING_INCLUDE_CENTER         // Move to the center after the last corner
-  #define BED_TRAMMING_USE_PROBE
+  // #define BED_TRAMMING_USE_PROBE
   #if ENABLED(BED_TRAMMING_USE_PROBE)
     #define BED_TRAMMING_PROBE_TOLERANCE 0.1  // (mm)
     #define BED_TRAMMING_VERIFY_RAISED        // After adjustment triggers the probe, re-probe to verify
