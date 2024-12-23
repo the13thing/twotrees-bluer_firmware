@@ -644,15 +644,15 @@
 
 // Above this temperature the heater will be switched off.
 // This can protect components from overheating, but NOT from shorts and failures.
-// (Use MINTEMP for thermistor short/failure protection.)
-#define HEATER_0_MAXTEMP 275
-#define HEATER_1_MAXTEMP 275
-#define HEATER_2_MAXTEMP 275
-#define HEATER_3_MAXTEMP 275
-#define HEATER_4_MAXTEMP 275
-#define HEATER_5_MAXTEMP 275
-#define HEATER_6_MAXTEMP 275
-#define HEATER_7_MAXTEMP 275
+// (Use MINTEMP for thermistor short/failure protection.)275
+#define HEATER_0_MAXTEMP 300
+#define HEATER_1_MAXTEMP 300
+#define HEATER_2_MAXTEMP 300
+#define HEATER_3_MAXTEMP 300
+#define HEATER_4_MAXTEMP 300
+#define HEATER_5_MAXTEMP 300
+#define HEATER_6_MAXTEMP 300
+#define HEATER_7_MAXTEMP 300
 #define BED_MAXTEMP      120
 #define CHAMBER_MAXTEMP  60
 
@@ -1328,7 +1328,7 @@
  *      - normally-closed switches to GND and D32.
  *      - normally-open switches to 5V and D32.
  */
-#define Z_MIN_PROBE_PIN PA11 // Pin 32 is the RAMPS default
+// #define Z_MIN_PROBE_PIN PA11 // Pin 32 is the RAMPS default
 // #define Z_MIN_PROBE_PIN 11 // Pin 32 is the RAMPS default
 
 /**
@@ -1520,7 +1520,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { 40, 0, 0 }
+#define NOZZLE_TO_PROBE_OFFSET { 40, 0, -2.630 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
