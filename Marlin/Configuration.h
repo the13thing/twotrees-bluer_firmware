@@ -176,8 +176,8 @@
 #define X_DRIVER_TYPE BASE_DRIVER_TYPE
 #define Y_DRIVER_TYPE BASE_DRIVER_TYPE
 
-#define Z_DRIVER_TYPE A4988
-#define E0_DRIVER_TYPE A4988
+#define Z_DRIVER_TYPE BASE_DRIVER_TYPE
+#define E0_DRIVER_TYPE BASE_DRIVER_TYPE
 // #if ENABLED(MKS_13)
 //   #define Z_DRIVER_TYPE BASE_DRIVER_TYPE
 // #else
@@ -1682,7 +1682,7 @@
 #if ENABLED(BLUER_TMC2209)
   #define INVERT_Z_DIR false
 #else
-  #define INVERT_Z_DIR true
+  #define INVERT_Z_DIR false
 #endif
 //#define INVERT_I_DIR false
 //#define INVERT_J_DIR false
@@ -1697,7 +1697,7 @@
 #if ENABLED(BLUER_TMC2209)
   #define INVERT_E0_DIR false
 #else
-  #define INVERT_E0_DIR true
+  #define INVERT_E0_DIR false
 #endif
 #define INVERT_E1_DIR false
 #define INVERT_E2_DIR false
